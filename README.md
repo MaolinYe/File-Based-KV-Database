@@ -6,3 +6,10 @@
 支持内存索引，支持超时类接口
 ## stage3
 支持LRU Cache
+## how to use
+指令大小写均可：set Set SET……均可识别
+set key value
+del key
+get key
+purge
+expire key time
