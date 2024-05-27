@@ -1,5 +1,5 @@
 # File-Based-KV-Database
-一个基于Append-Only File的KV数据库，支持GET查询、SET存储、DEL删除和PURGE整理操作以及异常处理，支持内存索引，支持超时类接口，支持LRU Cache
+一个基于Append-Only File的高并发集群KV数据库，支持GET查询、SET存储、DEL删除和PURGE整理操作以及异常处理，支持内存索引，支持超时类接口，支持LRU Cache
 ## stage1 基本功能实现
 支持GET查询、SET存储、DEL删除和PURGE整理操作以及异常处理，使用C++调用POSIX接口实现基于文件存储的KV数据库的查询、存储，删除和整理功能，并对异常输入、重复删除、覆盖写、删除重写等功能进行了单元测试和bug处理
 ## stage2 内存索引与过期删除
@@ -17,6 +17,8 @@
 ```shell
 telnet localhost 8888
 ```
+## stage5 数据分片集群
+使用数据分片集群解决高并发、海量数据存储问题，客户端请求访问集群任意节点，节点利用哈希一致性选出处理key的节点并正确转发
 # how to use
 指令大小写均可：set Set SET……均可识别
 ## 存储
